@@ -40,6 +40,16 @@ class co_parametros
 		WHERE $where
         ";
 	return toba::db()->consultar($sql);
-    }    
+    }  
+    
+    // listado de ubicaciones
+    function get_resoluciones_tipos($where='1=1')
+    {
+        $sql = "SELECT *
+		FROM resoluciones_tipos
+		WHERE $where
+        ";
+	return toba::db()->consultar($sql);
+    }       
 }
 

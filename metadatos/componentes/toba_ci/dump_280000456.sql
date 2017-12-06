@@ -235,6 +235,78 @@ INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objet
 	NULL, --inicializar
 	NULL  --orden
 );
+INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
+	'extension', --proyecto
+	'280000410', --dep_id
+	'280000456', --objeto_consumidor
+	'280000481', --objeto_proveedor
+	'form_ml_financiamiento', --identificador
+	NULL, --parametros_a
+	NULL, --parametros_b
+	NULL, --parametros_c
+	NULL, --inicializar
+	NULL  --orden
+);
+INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
+	'extension', --proyecto
+	'280000407', --dep_id
+	'280000456', --objeto_consumidor
+	'280000478', --objeto_proveedor
+	'form_ml_informes', --identificador
+	NULL, --parametros_a
+	NULL, --parametros_b
+	NULL, --parametros_c
+	NULL, --inicializar
+	NULL  --orden
+);
+INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
+	'extension', --proyecto
+	'280000408', --dep_id
+	'280000456', --objeto_consumidor
+	'280000479', --objeto_proveedor
+	'form_ml_instituciones', --identificador
+	NULL, --parametros_a
+	NULL, --parametros_b
+	NULL, --parametros_c
+	NULL, --inicializar
+	NULL  --orden
+);
+INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
+	'extension', --proyecto
+	'280000411', --dep_id
+	'280000456', --objeto_consumidor
+	'280000482', --objeto_proveedor
+	'form_ml_personas', --identificador
+	NULL, --parametros_a
+	NULL, --parametros_b
+	NULL, --parametros_c
+	NULL, --inicializar
+	NULL  --orden
+);
+INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
+	'extension', --proyecto
+	'280000409', --dep_id
+	'280000456', --objeto_consumidor
+	'280000480', --objeto_proveedor
+	'form_ml_ubicaciones', --identificador
+	NULL, --parametros_a
+	NULL, --parametros_b
+	NULL, --parametros_c
+	NULL, --inicializar
+	NULL  --orden
+);
+INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
+	'extension', --proyecto
+	'280000406', --dep_id
+	'280000456', --objeto_consumidor
+	'280000477', --objeto_proveedor
+	'relacion', --identificador
+	NULL, --parametros_a
+	NULL, --parametros_b
+	NULL, --parametros_c
+	NULL, --inicializar
+	NULL  --orden
+);
 --- FIN Grupo de desarrollo 280
 
 ------------------------------------------------------------
@@ -246,7 +318,7 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'extension', --objeto_ci_proyecto
 	'280000456', --objeto_ci
 	'280000148', --pantalla
-	'pant_inicial', --identificador
+	'seleccion', --identificador
 	'1', --orden
 	'Pantalla Inicial', --etiqueta
 	NULL, --descripcion
@@ -298,6 +370,41 @@ INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id)
 	'280000456', --objeto_ci
 	'0', --orden
 	'280000402'  --dep_id
+);
+INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id) VALUES (
+	'extension', --proyecto
+	'280000149', --pantalla
+	'280000456', --objeto_ci
+	'5', --orden
+	'280000407'  --dep_id
+);
+INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id) VALUES (
+	'extension', --proyecto
+	'280000149', --pantalla
+	'280000456', --objeto_ci
+	'3', --orden
+	'280000408'  --dep_id
+);
+INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id) VALUES (
+	'extension', --proyecto
+	'280000149', --pantalla
+	'280000456', --objeto_ci
+	'2', --orden
+	'280000409'  --dep_id
+);
+INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id) VALUES (
+	'extension', --proyecto
+	'280000149', --pantalla
+	'280000456', --objeto_ci
+	'4', --orden
+	'280000410'  --dep_id
+);
+INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id) VALUES (
+	'extension', --proyecto
+	'280000149', --pantalla
+	'280000456', --objeto_ci
+	'1', --orden
+	'280000411'  --dep_id
 );
 
 ------------------------------------------------------------
