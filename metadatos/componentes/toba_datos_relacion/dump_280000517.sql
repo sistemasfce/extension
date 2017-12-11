@@ -1,5 +1,5 @@
 ------------------------------------------------------------
---[280000491]--  Personas - relacion 
+--[280000517]--  Personas - relacion_planta 
 ------------------------------------------------------------
 
 ------------------------------------------------------------
@@ -9,7 +9,7 @@
 --- INICIO Grupo de desarrollo 280
 INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, clase_proyecto, clase, punto_montaje, subclase, subclase_archivo, objeto_categoria_proyecto, objeto_categoria, nombre, titulo, colapsable, descripcion, fuente_datos_proyecto, fuente_datos, solicitud_registrar, solicitud_obj_obs_tipo, solicitud_obj_observacion, parametro_a, parametro_b, parametro_c, parametro_d, parametro_e, parametro_f, usuario, creacion, posicion_botonera) VALUES (
 	'extension', --proyecto
-	'280000491', --objeto
+	'280000517', --objeto
 	NULL, --anterior
 	NULL, --identificador
 	NULL, --reflexivo
@@ -20,7 +20,7 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --subclase_archivo
 	NULL, --objeto_categoria_proyecto
 	NULL, --objeto_categoria
-	'Personas - relacion', --nombre
+	'Personas - relacion_planta', --nombre
 	NULL, --titulo
 	NULL, --colapsable
 	NULL, --descripcion
@@ -36,7 +36,7 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 	NULL, --parametro_e
 	NULL, --parametro_f
 	NULL, --usuario
-	'2017-12-06 10:48:17', --creacion
+	'2017-12-11 10:54:56', --creacion
 	NULL  --posicion_botonera
 );
 --- FIN Grupo de desarrollo 280
@@ -46,7 +46,7 @@ INSERT INTO apex_objeto (proyecto, objeto, anterior, identificador, reflexivo, c
 ------------------------------------------------------------
 INSERT INTO apex_objeto_datos_rel (proyecto, objeto, debug, clave, ap, punto_montaje, ap_clase, ap_archivo, sinc_susp_constraints, sinc_orden_automatico, sinc_lock_optimista) VALUES (
 	'extension', --proyecto
-	'280000491', --objeto
+	'280000517', --objeto
 	'0', --debug
 	NULL, --clave
 	'2', --ap
@@ -65,9 +65,9 @@ INSERT INTO apex_objeto_datos_rel (proyecto, objeto, debug, clave, ap, punto_mon
 --- INICIO Grupo de desarrollo 280
 INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
 	'extension', --proyecto
-	'280000417', --dep_id
-	'280000491', --objeto_consumidor
-	'280000488', --objeto_proveedor
+	'280000441', --dep_id
+	'280000517', --objeto_consumidor
+	'280000519', --objeto_proveedor
 	'personas', --identificador
 	'1', --parametros_a
 	'1', --parametros_b

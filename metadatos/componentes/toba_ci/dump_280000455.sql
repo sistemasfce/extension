@@ -237,10 +237,10 @@ INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objet
 );
 INSERT INTO apex_objeto_dependencias (proyecto, dep_id, objeto_consumidor, objeto_proveedor, identificador, parametros_a, parametros_b, parametros_c, inicializar, orden) VALUES (
 	'extension', --proyecto
-	'280000418', --dep_id
+	'280000440', --dep_id
 	'280000455', --objeto_consumidor
-	'280000491', --objeto_proveedor
-	'relacion', --identificador
+	'280000517', --objeto_proveedor
+	'relacion_planta', --identificador
 	NULL, --parametros_a
 	NULL, --parametros_b
 	NULL, --parametros_c
@@ -258,7 +258,7 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'extension', --objeto_ci_proyecto
 	'280000455', --objeto_ci
 	'280000146', --pantalla
-	'pant_inicial', --identificador
+	'seleccion', --identificador
 	'1', --orden
 	'Pantalla Inicial', --etiqueta
 	NULL, --descripcion
@@ -316,26 +316,8 @@ INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id)
 -- apex_eventos_pantalla
 ------------------------------------------------------------
 INSERT INTO apex_eventos_pantalla (pantalla, objeto_ci, evento_id, proyecto) VALUES (
-	'280000146', --pantalla
-	'280000455', --objeto_ci
-	'280000438', --evento_id
-	'extension'  --proyecto
-);
-INSERT INTO apex_eventos_pantalla (pantalla, objeto_ci, evento_id, proyecto) VALUES (
 	'280000147', --pantalla
 	'280000455', --objeto_ci
 	'280000439', --evento_id
-	'extension'  --proyecto
-);
-INSERT INTO apex_eventos_pantalla (pantalla, objeto_ci, evento_id, proyecto) VALUES (
-	'280000147', --pantalla
-	'280000455', --objeto_ci
-	'280000440', --evento_id
-	'extension'  --proyecto
-);
-INSERT INTO apex_eventos_pantalla (pantalla, objeto_ci, evento_id, proyecto) VALUES (
-	'280000147', --pantalla
-	'280000455', --objeto_ci
-	'280000441', --evento_id
 	'extension'  --proyecto
 );

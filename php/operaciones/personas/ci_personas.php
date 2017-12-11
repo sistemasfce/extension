@@ -4,13 +4,13 @@ class ci_personas extends extension_ci
 	//-------------------------------------------------------------------------
 	function relacion()
 	{
-		return $this->controlador->dep('relacion');
+		return $this->controlador->dep('relacion_planta');
 	}
 	
 	//-------------------------------------------------------------------------
 	function tabla($id)
 	{
-		return $this->controlador->dep('relacion')->tabla($id);    
+		return $this->controlador->dep('relacion_planta')->tabla($id);    
 	}        
         
 	//-----------------------------------------------------------------------------------
@@ -56,14 +56,14 @@ class ci_personas extends extension_ci
 
 	function evt__cancelar()
 	{
-            $this->dep('relacion')->resetear();
+            $this->dep('relacion_planta')->resetear();
             $this->set_pantalla('seleccion');
 	}
 
 	function evt__eliminar()
 	{
             try {
-                $this->dep('relacion')->eliminar_todo();
+                $this->dep('relacion_planta')->eliminar_todo();
                 $this->set_pantalla('seleccion');
             } catch (toba_error $e) {
                 toba::notificacion()->agregar('No es posible eliminar la persona.');
