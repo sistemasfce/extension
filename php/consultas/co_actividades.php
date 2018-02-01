@@ -23,5 +23,16 @@ class co_actividades
         ";
 	return toba::db()->consultar($sql);
     }    
+    
+    function get_actividades_por_persona($where)
+    {
+        $sql = "SELECT titulo, horas_asignadas
+                FROM personas_actividades 
+                    LEFT OUTER JOIN actividades ON (personas_actividades.actividad = actividades.actividad)
+		WHERE $where
+           
+        ";
+	return toba::db()->consultar($sql);
+    }
 }
 

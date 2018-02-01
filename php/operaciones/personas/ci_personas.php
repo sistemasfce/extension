@@ -1,6 +1,8 @@
 <?php
 class ci_personas extends extension_ci
 {
+    protected $s__filtro;
+    
 	//-------------------------------------------------------------------------
 	function relacion()
 	{
