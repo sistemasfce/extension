@@ -23,9 +23,11 @@ class ci_actividades_por_persona extends extension_ci
 
 	function conf__filtro(extension_ei_filtro $filtro)
 	{   
-		if (isset($this->s__filtro)) {
-			$filtro->set_datos($this->s__filtro);
-		}   
+            if (isset($this->s__filtro)) {
+                $filtro->set_datos($this->s__filtro);
+            }   
+            $filtro->columna('fecha_desde')->set_condicion_fija('entre');
+            $filtro->columna('fecha_hasta')->set_condicion_fija('entre');
 	}  
 	
 	function evt__filtro__filtrar($datos)
