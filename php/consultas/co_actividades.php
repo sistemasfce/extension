@@ -26,7 +26,9 @@ class co_actividades
     
     function get_actividades_por_persona($where)
     {
-        $sql = "SELECT titulo, horas_asignadas
+        $sql = "SELECT  titulo, 
+                        resolucion || '/' || resolucion_anio,
+                        horas_asignadas
                 FROM personas_actividades 
                     LEFT OUTER JOIN actividades ON (personas_actividades.actividad = actividades.actividad)
 		WHERE $where
