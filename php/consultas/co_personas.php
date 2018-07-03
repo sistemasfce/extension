@@ -13,5 +13,15 @@ class co_personas
         ";
 	return toba::db('planta')->consultar($sql);
     }
+    
+    function get_nombre_persona($persona)
+    {
+        $sql = "SELECT 
+                    apellido || ', ' || nombres as nombre_completo
+		FROM personas 
+		WHERE persona = $persona
+        ";
+	return toba::db('planta')->consultar_fila($sql);
+    }    
 }
 

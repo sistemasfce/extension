@@ -36,5 +36,22 @@ class co_actividades
         ";
 	return toba::db()->consultar($sql);
     }
+    
+    function get_personas_por_actividad($where=null)
+    {
+        $sql = "SELECT  actividades.actividad,
+                        titulo, 
+                        resolucion || '/' || resolucion_anio as resolucion_desc,
+                        horas_asignadas,
+                        roles.descripcion as rol_nombre,
+                        persona
+                FROM personas_actividades 
+                    LEFT OUTER JOIN actividades ON (personas_actividades.actividad = actividades.actividad)
+                    LEFT OUTER JOIN roles ON (personas_actividades.rol = roles.rol)
+		
+           
+        ";
+	return toba::db()->consultar($sql);
+    }    
 }
 
