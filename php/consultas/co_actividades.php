@@ -28,9 +28,14 @@ class co_actividades
     {
         $sql = "SELECT  titulo, 
                         resolucion || '/' || resolucion_anio as resolucion_desc,
+                        fecha_desde,
+                        fecha_hasta,
+                        resolucion_fecha,
+                        roles.descripcion as rol_nombre,
                         horas_asignadas
                 FROM personas_actividades 
                     LEFT OUTER JOIN actividades ON (personas_actividades.actividad = actividades.actividad)
+                    LEFT OUTER JOIN roles ON (personas_actividades.rol = roles.rol)
 		WHERE $where
            
         ";
@@ -41,6 +46,9 @@ class co_actividades
     {
         $sql = "SELECT  actividades.actividad,
                         titulo, 
+                        fecha_desde,
+                        fecha_hasta,
+                        resolucion_fecha,                        
                         resolucion || '/' || resolucion_anio as resolucion_desc,
                         horas_asignadas,
                         roles.descripcion as rol_nombre,
