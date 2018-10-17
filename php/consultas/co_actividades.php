@@ -12,6 +12,35 @@ class co_actividades
         ";
 	return toba::db()->consultar($sql);
     }
+
+    // listado de actividades
+    function get_actividades_completo($where='1=1')
+    {
+        $sql = "SELECT actividad,
+                        titulo,
+                        solicitud_tipo,
+                        fecha_carga,
+                        resolucion || '/' || resolucion_anio as resolucion_desc,
+                        resolucion_fecha,
+                        fecha_desde,
+                        fecha_hasta,
+                        actividades_tipos.descripcion as actividad_tipo_desc,
+                        responsable,
+                        especialidad,
+                        especialidad_2,
+                        especialidad_3,
+                        objetivos,
+                        dependencias.descripcion as dep_academica_desc,
+                        dep2.descripcion as dep_institucional_desc
+                        
+		FROM actividades LEFT OUTER JOIN actividades_tipos ON (actividades.actividad_tipo = actividades_tipos.actividad_tipo)
+                                LEFT OUTER JOIN dependencias ON (actividades.dep_academica = dependencias.dependencia)
+                                LEFT OUTER JOIN dependencias as dep2 ON (actividades.dep_institucional = dep2.dependencia)
+		WHERE $where
+                ORDER BY fecha_desde
+        ";
+	return toba::db()->consultar($sql);
+    }
     
     // listado de actividades
     function get_actividades_tipos($where='1=1')
