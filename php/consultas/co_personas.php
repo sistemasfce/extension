@@ -13,7 +13,7 @@ class co_personas
         ";
 	return toba::db('planta')->consultar($sql);
     }
-    
+
     function get_nombre_persona($persona)
     {
         $sql = "SELECT 
@@ -22,6 +22,6 @@ class co_personas
 		WHERE persona = $persona
         ";
 	return toba::db('planta')->consultar_fila($sql);
-    }    
+    }
 }
 

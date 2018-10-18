@@ -90,5 +90,24 @@ class co_actividades
         ";
 	return toba::db()->consultar($sql);
     }    
+    
+    function get_ubicaciones_actividad($actividad)
+    {
+        $sql = "SELECT descripcion
+                FROM ubicaciones LEFT OUTER JOIN actividades_ubicaciones ON ubicaciones.ubicacion = actividades_ubicaciones.ubicacion
+                        
+                WHERE actividad = $actividad";
+        return toba::db()->consultar($sql);        
+    }    
+    
+    function get_instituciones_actividad($actividad)
+    {
+        $sql = "SELECT descripcion
+                FROM instituciones LEFT OUTER JOIN actividades_instituciones ON instituciones.institucion = actividades_instituciones.institucion
+                        
+                WHERE actividad = $actividad";
+        return toba::db()->consultar($sql);        
+    }      
+    
 }
 

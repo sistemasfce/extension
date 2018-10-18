@@ -12,7 +12,26 @@ class ci_actividades_completo extends extension_ci
         $where = $this->dep('filtro')->get_sql_where();
         //if ($where != '1=1') {
             $datos = toba::consulta_php('co_actividades')->get_actividades_completo($where);
-            $cuadro->set_datos($datos);    
+            $aux = array();
+            foreach ($datos as $dat) {
+                $ubicaciones_text = '';
+                $ubicaciones = toba::consulta_php('co_actividades')->get_ubicaciones_actividad($dat['actividad']);
+                foreach ($ubicaciones as $ubi) {
+                    $ubicaciones_text .= $ubi['descripcion'].'-';
+                }
+                $dat['ubicacion_desc'] = substr($ubicaciones_text, 0, -1);
+                
+                $instituciones_text = '';
+                $instituciones = toba::consulta_php('co_actividades')->get_instituciones_actividad($dat['actividad']);
+                foreach ($instituciones as $ubi) {
+                    $instituciones_text .= $ubi['descripcion'].'-';
+                }
+                $dat['institucion_desc'] = substr($instituciones_text, 0, -1);                
+                
+                $aux[] = $dat;
+            }
+            
+            $cuadro->set_datos($aux);    
         //}
     }
 
