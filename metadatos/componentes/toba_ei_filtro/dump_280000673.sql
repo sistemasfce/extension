@@ -134,7 +134,7 @@ INSERT INTO apex_objeto_ei_filtro_col (objeto_ei_filtro_col, objeto_ei_filtro, o
 	'extension', --objeto_ei_filtro_proyecto
 	'cadena', --tipo
 	'anio', --nombre
-	'anio', --expresion
+	'resolucion_anio', --expresion
 	'Año', --etiqueta
 	NULL, --descripcion
 	'0', --obligatorio

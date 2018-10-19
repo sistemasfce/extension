@@ -34,7 +34,7 @@ class ci_actividades_completo extends extension_ci
                     $nombre = toba::consulta_php('co_personas')->get_nombre_persona($per['persona']);
                     $personas_text .= $nombre['nombre_completo'].'-';
                 }
-                $dat['persona_desc'] = substr($persona_text, 0, -1); 
+                $dat['persona_desc'] = substr($personas_text, 0, -1); 
                 
                 $aux[] = $dat;
             }
