@@ -27,6 +27,14 @@ class ci_actividades_completo extends extension_ci
                     $instituciones_text .= $ubi['descripcion'].'-';
                 }
                 $dat['institucion_desc'] = substr($instituciones_text, 0, -1);                
+ 
+                $personas_text = '';
+                $personas = toba::consulta_php('co_actividades')->get_personas_actividad($dat['actividad']);
+                foreach ($personas as $per) {
+                    $nombre = toba::consulta_php('co_personas')->get_nombre_persona($per['persona']);
+                    $personas_text .= $nombre['nombre_completo'].'-';
+                }
+                $dat['persona_desc'] = substr($persona_text, 0, -1); 
                 
                 $aux[] = $dat;
             }

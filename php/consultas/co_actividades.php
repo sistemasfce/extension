@@ -108,6 +108,14 @@ class co_actividades
                 WHERE actividad = $actividad";
         return toba::db()->consultar($sql);        
     }      
+
+    function get_personas_actividad($actividad)
+    {
+        $sql = "SELECT persona, rol, horas_asignadas
+                FROM personas_actividades      
+                WHERE actividad = $actividad";
+        return toba::db()->consultar($sql);        
+    }  
     
 }
 
