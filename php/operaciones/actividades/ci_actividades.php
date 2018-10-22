@@ -146,19 +146,41 @@ class ci_actividades extends extension_ci
 	{
             $this->tabla('actividades_instituciones')->procesar_filas($datos);
 	} 
-        
+      
 	function conf__form_ml_informes(extension_ei_formulario_ml $form_ml)
 	{
-            if ($this->relacion()->esta_cargada()) {
-		$datos = $this->tabla('actividades_informes')->get_filas();
-                $form_ml->set_datos($datos);
-            }
+		if ($this->relacion()->esta_cargada()) {
+			$datos_fila = $this->tabla('actividades_informes')->get_filas();
+			$aux = array();
+			foreach ($datos_fila as $datos) {
+					// el 23 es para que corte la cadena despues del caracter 19, de /home/fce/informes_ext/
+					$nombre = substr($datos['informe_path'],23);
+					$dir_tmp = toba::proyecto()->get_www_temp();
+					exec("cp '". $datos['informe_path']. "' '" .$dir_tmp['path']."/".$nombre."'");
+					$temp_archivo = toba::proyecto()->get_www_temp($nombre);
+					$tamanio = round(filesize($temp_archivo['path']) / 1024);
+					$datos['informe_path_v'] = "<a href='{$temp_archivo['url']}'target='_blank'>Descargar archivo</a>";
+					$datos['informe_archivo'] = $nombre. ' - Tam.: '.$tamanio. ' KB';   
+				$aux[] = $datos;
+			}
+			$form_ml->set_datos($aux);
+		}        
 	}
 
 	function evt__form_ml_informes__modificacion($datos)
 	{
-            $this->tabla('actividades_informes')->procesar_filas($datos);
-	}    
+		$aux = array();
+		foreach ($datos as $dat) {
+			if (isset($dat['informe_archivo'])) {
+				$nombre_archivo = $dat['informe_archivo']['name'];
+				$destino = '/home/fce/informes_ext/'.$nombre_archivo;
+				move_uploaded_file($dat['informe_archivo']['tmp_name'], $destino);   
+				$dat['informe_path'] = $destino;   
+			}
+			$aux[] = $dat;
+		}
+		$this->tabla('actividades_informes')->procesar_filas($aux);        
+	}
         
 	function conf__form_ml_personas(extension_ei_formulario_ml $form_ml)
 	{
