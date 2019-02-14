@@ -342,7 +342,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'extension', --objeto_cuadro_proyecto
 	'280000724', --objeto_cuadro
 	'280001191', --objeto_cuadro_col
-	'desde', --clave
+	'fecha_desde', --clave
 	'13', --orden
 	'Desde', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
@@ -373,7 +373,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'extension', --objeto_cuadro_proyecto
 	'280000724', --objeto_cuadro
 	'280001192', --objeto_cuadro_col
-	'hasta', --clave
+	'fecha_hasta', --clave
 	'14', --orden
 	'Hasta', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
