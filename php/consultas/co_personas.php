@@ -17,7 +17,8 @@ class co_personas
     function get_nombre_persona($persona)
     {
         $sql = "SELECT 
-                    apellido || ', ' || nombres as nombre_completo
+                    apellido || ', ' || nombres as nombre_completo,
+                    documento
 		FROM personas 
 		WHERE persona = $persona
         ";
