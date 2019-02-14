@@ -42,6 +42,30 @@ class co_actividades
 	return toba::db()->consultar($sql);
     }
     
+    function get_actividades_planilla($where='1=1')
+    {
+        $sql = "SELECT personas_actividades.persona,
+	'EX' as dimension_desc,
+	actividades.titulo as actividad_desc,
+	roles.descripcion as rol_desc,
+	personas_actividades.horas_asignadas,
+	actividades.fecha_desde,
+	actividades.fecha_hasta,
+	CASE WHEN actividades.responsable = personas_actividades.persona THEN 'S'
+	ELSE 'N'
+	END as responsable
+                        
+        FROM personas_actividades 
+			LEFT OUTER JOIN actividades ON personas_actividades.actividad = actividades.actividad
+			LEFT OUTER JOIN actividades_tipos ON (actividades.actividad_tipo = actividades_tipos.actividad_tipo)
+			LEFT OUTER JOIN roles ON personas_actividades.rol = roles.rol
+                        
+        WHERE $where
+        ORDER BY fecha_desde
+        ";
+	return toba::db()->consultar($sql);
+    }
+    
     // listado de actividades
     function get_actividades_tipos($where='1=1')
     {
