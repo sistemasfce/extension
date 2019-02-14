@@ -10,16 +10,19 @@ class ci_planilla_reasignaciones extends extension_ci
     function conf__cuadro(extension_ei_cuadro $cuadro)
     {
         $where = $this->dep('filtro')->get_sql_where();
-        $datos = toba::consulta_php('co_actividades')->get_actividades_planilla($where);
-        $resultados = array();
-        foreach ($datos as $dat) {
-            $aux = $dat;
-            $persona = toba::consulta_php('co_personas')->get_nombre_persona($dat['persona']);
-            $aux['persona_nombre'] = $persona['nombre_completo'];
-            $aux['documento'] = $persona['documento'];
-            $resultados[] = $aux;
+        if ($where != '1=1') {
+            $datos = toba::consulta_php('co_actividades')->get_actividades_planilla($where);
+            $resultados = array();
+            foreach ($datos as $dat) {
+                $aux = $dat;
+                $persona = toba::consulta_php('co_personas')->get_nombre_persona($dat['persona']);
+                $aux['persona_nombre'] = $persona['nombre_completo'];
+                $aux['documento'] = $persona['documento'];
+                $resultados[] = $aux;
+            }
+            $datos_ordenados = rs_ordenar_por_columna($resultados, 'persona_nombre');
+            $cuadro->set_datos($datos_ordenados);    
         }
-        $cuadro->set_datos($resultados);      
     }
 
     //-----------------------------------------------------------------------------------

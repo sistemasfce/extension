@@ -47,8 +47,11 @@ class co_actividades
         $sql = "SELECT personas_actividades.persona,
 	'EX' as dimension_desc,
 	actividades.titulo as actividad_desc,
+        actividades.resolucion || '/' || actividades.resolucion_anio as resolucion_desc,
 	roles.descripcion as rol_desc,
-	personas_actividades.horas_asignadas,
+        dependencias.descripcion as departamento_desc,
+        (SELECT codigo FROM ubicaciones,actividades_ubicaciones WHERE ubicaciones.ubicacion = actividades_ubicaciones.ubicacion 
+            AND actividades_ubicaciones.actividad = actividades.actividad LIMIT 1) as ubicacion_desc,
 	actividades.fecha_desde,
 	actividades.fecha_hasta,
 	CASE WHEN actividades.responsable = personas_actividades.persona THEN 'S'
@@ -59,6 +62,7 @@ class co_actividades
 			LEFT OUTER JOIN actividades ON personas_actividades.actividad = actividades.actividad
 			LEFT OUTER JOIN actividades_tipos ON (actividades.actividad_tipo = actividades_tipos.actividad_tipo)
 			LEFT OUTER JOIN roles ON personas_actividades.rol = roles.rol
+                        LEFT OUTER JOIN dependencias ON (actividades.dep_academica = dependencias.dependencia)
                         
         WHERE $where
         ORDER BY fecha_desde

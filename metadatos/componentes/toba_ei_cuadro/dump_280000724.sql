@@ -435,9 +435,9 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'extension', --objeto_cuadro_proyecto
 	'280000724', --objeto_cuadro
 	'280001194', --objeto_cuadro_col
-	'a1', --clave
+	'resolucion_desc', --clave
 	'7', --orden
-	'Resol, N°', --titulo
+	'Resol N°', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo
 	'4', --estilo
 	NULL, --ancho
