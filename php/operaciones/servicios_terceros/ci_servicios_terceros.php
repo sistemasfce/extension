@@ -103,6 +103,23 @@ class ci_servicios_terceros extends extension_ci
     {   
         unset($this->s__filtro);
     }    
+    
+    //-----------------------------------------------------------------------------------
+    //---- form_ml ----------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------
+
+    function conf__form_ml_pagos(extension_ei_formulario_ml $form_ml)
+    {
+        if ($this->relacion()->esta_cargada()) {
+            $datos = $this->tabla('st_pagos')->get_filas();
+            $form_ml->set_datos($datos);
+        }
+    }
+
+    function evt__form_ml_pagos__modificacion($datos)
+    {
+        $this->tabla('st_pagos')->procesar_filas($datos);
+    }    
          
 }
 ?>
