@@ -50,6 +50,14 @@ class co_parametros
 		WHERE $where
         ";
 	return toba::db()->consultar($sql);
-    }       
+    }  
+    
+    function get_ciclos_lectivos()
+    {
+	$sql = "SELECT *
+		FROM ciclos_lectivos
+		";
+	return toba::db('planta')->consultar($sql);
+    }    
 }
 
