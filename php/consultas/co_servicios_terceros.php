@@ -25,7 +25,8 @@ class co_servicios_terceros
                 $dat['nombre_completo'] = $nombre['nombre_completo'];
                 $aux[] = $dat;
         }
-        return $aux;
+        $datos_ordenados = rs_ordenar_por_columna($aux, 'nombre_completo');
+        return $datos_ordenados;
     }    
 
     function get_servicios_terceros($where='1=1')

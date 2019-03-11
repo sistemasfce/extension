@@ -162,7 +162,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	NULL, --carga_sql
 	'extension', --carga_fuente
 	NULL, --carga_lista
-	'persona', --carga_col_clave
+	'st_prestador', --carga_col_clave
 	'nombre_completo', --carga_col_desc
 	NULL, --carga_maestros
 	'0', --carga_cascada_relaj
