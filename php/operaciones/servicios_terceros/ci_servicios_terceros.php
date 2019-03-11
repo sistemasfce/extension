@@ -120,6 +120,18 @@ class ci_servicios_terceros extends extension_ci
     {
         $this->tabla('st_pagos')->procesar_filas($datos);
     }    
-         
+    
+    function conf__form_ml_ue(extension_ei_formulario_ml $form_ml)
+    {
+        if ($this->relacion()->esta_cargada()) {
+            $datos = $this->tabla('st_unidades_ejecutoras')->get_filas();
+            $form_ml->set_datos($datos);
+        }
+    }
+
+    function evt__form_ml_ue__modificacion($datos)
+    {
+        $this->tabla('st_unidades_ejecutoras')->procesar_filas($datos);
+    }            
 }
 ?>
