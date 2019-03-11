@@ -134,7 +134,7 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	'extension', --objeto_cuadro_proyecto
 	'280000828', --objeto_cuadro
 	'280001322', --objeto_cuadro_col
-	'persona_nombre', --clave
+	'nombre_completo', --clave
 	'1', --orden
 	'Prestador', --titulo
 	'ei-cuadro-col-tit', --estilo_titulo

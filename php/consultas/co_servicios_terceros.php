@@ -18,7 +18,14 @@ class co_servicios_terceros
 		FROM st_prestadores
 		WHERE $where
         ";
-	return toba::db()->consultar($sql);
+	$datos = toba::db()->consultar($sql);
+        $aux = array();
+        foreach ($datos as $dat) {
+                $nombre = toba::consulta_php('co_personas')->get_nombre_persona($dat['persona']);
+                $dat['nombre_completo'] = $nombre['nombre_completo'];
+                $aux[] = $dat;
+        }
+        return $aux;
     }    
 
     function get_servicios_terceros($where='1=1')

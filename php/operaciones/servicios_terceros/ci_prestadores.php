@@ -30,7 +30,24 @@ class ci_prestadores extends extension_ci
     {
         $this->tabla('st_prestadores')->set($datos);
     }
+    
+    //-----------------------------------------------------------------------------------
+    //---- form_ml ----------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------
 
+    function conf__form_ml(extension_ei_formulario_ml $form_ml)
+    {
+        if ($this->relacion()->esta_cargada()) {
+            $datos = $this->tabla('st_prestadores_areas')->get_filas();
+            $form_ml->set_datos($datos);
+        }
+    }
+
+    function evt__form_ml__modificacion($datos)
+    {
+        $this->tabla('st_prestadores_areas')->procesar_filas($datos);
+    }
+        
     //-----------------------------------------------------------------------------------
     //---- cuadro -----------------------------------------------------------------------
     //-----------------------------------------------------------------------------------
@@ -38,6 +55,7 @@ class ci_prestadores extends extension_ci
     function conf__cuadro(extension_ei_cuadro $cuadro)
     {
         $datos = toba::consulta_php('co_servicios_terceros')->get_prestadores();
+        
         $cuadro->set_datos($datos);            
     }
 
