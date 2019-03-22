@@ -37,7 +37,8 @@ class ci_servicios_terceros extends extension_ci
 
     function conf__cuadro(extension_ei_cuadro $cuadro)
     {
-        $datos = toba::consulta_php('co_servicios_terceros')->get_servicios_terceros();
+        $where = $this->dep('filtro')->get_sql_where();
+        $datos = toba::consulta_php('co_servicios_terceros')->get_servicios_terceros($where);
         $cuadro->set_datos($datos);            
     }
 

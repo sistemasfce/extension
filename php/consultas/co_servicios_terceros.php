@@ -34,6 +34,7 @@ class co_servicios_terceros
         $sql = "SELECT *
 		FROM st_servicios_terceros
 		WHERE $where
+                    ORDER BY ciclo_lectivo DESC
         ";
 	return toba::db()->consultar($sql);
     }     

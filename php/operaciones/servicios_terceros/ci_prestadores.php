@@ -21,7 +21,12 @@ class ci_prestadores extends extension_ci
     function conf__form(extension_ei_formulario $form)
     {
         if ($this->relacion()->esta_cargada()) {
-            $datos = $this->tabla('st_prestadores')->get();            
+            $datos = $this->tabla('st_prestadores')->get();     
+            $where = 'persona = '.$datos['persona'];
+            $datos_per = toba::consulta_php('co_personas')->get_personas($where);
+            $datos['documento'] = $datos_per[0]['documento'];
+            $datos['telefono'] = $datos_per[0]['telefono'];
+            $datos['mail'] = $datos_per[0]['mail'];
             $form->set_datos($datos);
         }            
     }
