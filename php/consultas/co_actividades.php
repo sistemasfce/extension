@@ -50,8 +50,10 @@ class co_actividades
         actividades.resolucion || '/' || actividades.resolucion_anio as resolucion_desc,
 	roles.descripcion as rol_desc,
         dependencias.descripcion as departamento_desc,
-        (SELECT codigo FROM ubicaciones,actividades_ubicaciones WHERE ubicaciones.ubicacion = actividades_ubicaciones.ubicacion 
-            AND actividades_ubicaciones.actividad = actividades.actividad LIMIT 1) as ubicacion_desc,
+        CASE WHEN (SELECT COUNT(*) FROM ubicaciones,actividades_ubicaciones WHERE ubicaciones.ubicacion = actividades_ubicaciones.ubicacion 
+            AND actividades_ubicaciones.actividad = actividades.actividad) > 1 THEN '' ELSE (SELECT codigo FROM ubicaciones,actividades_ubicaciones WHERE ubicaciones.ubicacion = actividades_ubicaciones.ubicacion 
+            AND actividades_ubicaciones.actividad = actividades.actividad LIMIT 1) 
+	END as ubicacion_desc,
 	actividades.fecha_desde,
 	actividades.fecha_hasta,
 	CASE WHEN actividades.responsable = personas_actividades.persona THEN 'S'
