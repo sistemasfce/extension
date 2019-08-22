@@ -48,7 +48,12 @@ class co_actividades
 	'EX' as dimension_desc,
 	actividades.titulo as actividad_desc,
         actividades.resolucion || '/' || actividades.resolucion_anio as resolucion_desc,
-	roles.descripcion as rol_desc,
+        CASE WHEN roles.rol = 4 THEN 'Director'
+        WHEN roles.rol = 3 THEN 'Coordinador'
+        ELSE 'Unidad ejecutora'
+        END as rol_desc,
+        
+	--roles.descripcion as rol_desc,
         dependencias.descripcion as departamento_desc,
         CASE WHEN (SELECT COUNT(*) FROM ubicaciones,actividades_ubicaciones WHERE ubicaciones.ubicacion = actividades_ubicaciones.ubicacion 
             AND actividades_ubicaciones.actividad = actividades.actividad) > 1 THEN '' ELSE (SELECT codigo FROM ubicaciones,actividades_ubicaciones WHERE ubicaciones.ubicacion = actividades_ubicaciones.ubicacion 
@@ -56,9 +61,8 @@ class co_actividades
 	END as ubicacion_desc,
 	actividades.fecha_desde,
 	actividades.fecha_hasta,
-	CASE WHEN actividades.responsable = personas_actividades.persona THEN 'S'
-	ELSE 'N'
-	END as responsable
+	CASE WHEN personas_actividades.responsable = 'S' THEN 'SI'
+        ELSE 'NO' END as responsable
                         
         FROM personas_actividades 
 			LEFT OUTER JOIN actividades ON personas_actividades.actividad = actividades.actividad
